@@ -22,9 +22,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'jkumarraj Docker hub'
+        containerRegistry: 'Jkumar Raj Docker hub'
         repository: 'jkumarraj/weatherapi'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: |
-          $(tag)
