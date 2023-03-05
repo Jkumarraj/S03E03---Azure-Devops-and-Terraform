@@ -7,12 +7,20 @@ terraform {
       version = "=3.0.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "tf_rg_blobstore"
+    storage_account_name = "tfstatejkumarraj"
+    container_name = "tfstate"
+    key = "weatherapi.terraform.tfstate"
+  }
 }
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
 }
+
+ 
 
 # variable "imageBuild" {
 #   type        = string
