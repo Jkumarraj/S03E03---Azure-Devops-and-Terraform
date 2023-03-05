@@ -44,8 +44,3 @@ resource "azurerm_container_group" "tf_cg_test" {
     }
   }
 }
-
-
-
-
-
