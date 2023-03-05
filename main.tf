@@ -9,7 +9,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name = "tf_rg_blobstore"
-    storage_account_name = "tfstatejkumarraj"
+    storage_account_name = "tfstatestoreblob"
     container_name = "tfstate"
     key = "weatherapi.terraform.tfstate"
   }
@@ -27,7 +27,7 @@ variable "imageBuild" {
 
 resource "azurerm_resource_group" "tf_rg_test" {
   name     = "tf-main-rg"
-  location = "centralus"
+  location = "eastus"
 }
 
 resource "azurerm_container_group" "tf_cg_test" {
