@@ -8,10 +8,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name = "tf_rg_blobstore"
+    resource_group_name  = "tf_rg_blobstore"
     storage_account_name = "tfstatestoreblob"
-    container_name = "tfstate"
-    key = "weatherapi.terraform.tfstate"
+    container_name       = "tfstate"
+    key                  = "weatherapi.terraform.tfstate"
   }
 }
 
@@ -36,17 +36,20 @@ resource "azurerm_container_group" "tf_cg_test" {
   resource_group_name = azurerm_resource_group.tf_rg_test.name
 
   ip_address_type = "Public"
-  dns_name_label  = "jk-weather-api"
+  dns_name_label  = "jkweatherapi"
   os_type         = "Linux"
 
   container {
     name   = "weatherapi"
-    image  = "docker.io/jkumarraj/weatherapi:${var.imageBuild}"
+    image  = "jkumarraj/weatherapi:${var.imageBuild}"
     cpu    = "1"
     memory = "1"
     ports {
       port     = 80
       protocol = "TCP"
     }
+  }
+  timeouts {
+    create = "4m"
   }
 }
