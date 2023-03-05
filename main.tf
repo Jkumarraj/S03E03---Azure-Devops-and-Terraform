@@ -41,7 +41,7 @@ resource "azurerm_container_group" "tf_cg_test" {
 
   container {
     name   = "weatherapi"
-    image  = "jkumarraj/weatherapi:${var.imageBuild}"
+    image  = "docker.io/jkumarraj/weatherapi:${var.imageBuild}"
     cpu    = "1"
     memory = "1"
     ports {
